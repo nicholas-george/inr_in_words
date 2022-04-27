@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/nicholas-george/inr_in_words/issues"
   },
-  "homepage": "https://github.com/nicholas-george/inr_in_words#readme"
+  "homepage": "https://github.com/nicholas-george/inr_in_words#readme",
+  "devDependencies": {
+    "jest": "^28.0.2"
+  }
 }
