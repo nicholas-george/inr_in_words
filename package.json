@@ -1,0 +1,23 @@
+{
+  "name": "inr_in_words",
+  "version": "1.0.0",
+  "description": "A javascript utility to convert numbers into Indiann currency",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholas-george/inr_in_words.git"
+  },
+  "keywords": [
+    "inr",
+    "inr_to_words"
+  ],
+  "author": "Nicholas George",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicholas-george/inr_in_words/issues"
+  },
+  "homepage": "https://github.com/nicholas-george/inr_in_words#readme"
+}
