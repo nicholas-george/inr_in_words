@@ -5,7 +5,7 @@ An javascript utility to convert numbers into Indian currency.
 
 ## Use
 
-If you want to just play around, copy / paste the whole code from [lib/inr_word.ex](https://github.com/nicholas-george/Indian-Currency-Converter/blob/master/lib/inr_word.ex) into your browser console. Then in call
+If you want to just play around, copy / paste the whole code from [index.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.js) into your browser console. Then in call
 ```javascript
 inrWords(100000000000000)
 {"no":"₹ 1,00,00,000,00,00,000", "words":"₹ one crore crores"}
@@ -63,4 +63,4 @@ If you are looking for an Elixir version to convert numbers for Indian currency,
 
 Copyright (c) 2022 Nicholas George
 
-This work is free. You can redistribute it and/or modify it under the terms of the MIT License. See the [LICENSE.md](https://github.com/nicholas-george/Indian-Currency-Converter/blob/master/LICENSE) file for more details.
+This work is free. You can redistribute it and/or modify it under the terms of the MIT License. See the [LICENSE.md](https://github.com/nicholas-george/inr_in_words/blob/master/LICENSE) file for more details.
