@@ -8,27 +8,44 @@ An javascript utility to convert numbers into Indian currency.
 If you want to just play around, copy / paste the whole code from [lib/inr_word.ex](https://github.com/nicholas-george/Indian-Currency-Converter/blob/master/lib/inr_word.ex) into your browser console. Then in call
 ```javascript
 inrWords(100000000000000)
-{"no":"₹ 1,00,00,000,00,00,000","words":"₹ one crore crores"}
+{"no":"₹ 1,00,00,000,00,00,000", "words":"₹ one crore crores"}
 
 inrWords(10000000.10)
-{"no":"₹ 1,00,00,000.10","words":"₹ one crore and ten paisa"}
+{"no":"₹ 1,00,00,000.10","words": "₹ one crore and ten paisa"}
 
 inrWords(10000000.10, '', '')
-{"no":"1,00,00,000.10","words":"one crore and ten"}
+{"no":"1,00,00,000.10","words": "one crore and ten"}
 
 ```
 A few more variations are possible. For a full list, pl. look at [index.test.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.test.js).
 
-## In your projects..
+## Use in your projects..
 
 You can  use it as an ES6 module, in your projects as it is.
 
 To use as a node commonjs module change the last line to 'module.exports = inrWords;'
 
-With a minor tweek, this code can be use in Google appscripts and use in Google sheets. 
-  (line 75 'return leftPart;' has to be changed into 
-           'return leftPart.no;')  if u want  only the number
-           'return leftPart.words;')  if u want  only the words.)
+With a minor tweek, this code can be used in Google appscripts and use in Google sheets.
+
+There is a [Google Sheets AppScript version](https://github.com/nicholas-george/inr_in_words/blob/master/googleAppScript.js). You can just copy paste the whole code here into your google sheet appscript.
+
+Then in your sheet, there are four functions: 
+  (Assuming cell A2 has your number '250,000.00'), type in cell B2
+
+  ```Appscript
+    =inr_Words(A2) 
+    ₹ two lacs fifty  thousand
+
+    =inr_Nos(A2)
+    ₹ 2,50,000
+
+    =inr_Words_Plain(A2)
+    two lacs fifty  thousand
+    
+    =inr_Nos_Plain(A2)
+    2,50,000
+  ```
+
 
 ## Indian currency converter?
 
