@@ -1,8 +1,10 @@
 import inrWords from './index.js'
 
-test('multi crores', () => {
-  expect(inrWords(100000000000000))
-    .toEqual({ "no": "₹ 1,00,00,000,00,00,000", "words": "₹ one crore crores" });
+describe('Handling multi crores', () => {
+  test('crore crores', () => {
+    expect(inrWords(100000000000000))
+      .toEqual({ "no": "₹ 1,00,00,000,00,00,000", "words": "₹ one crore crores" });
+  });
 });
 
 describe('Handling numbers in hundreds', () => {
