@@ -13,25 +13,24 @@ inrWords(100000000000000)
 inrWords(10000000.10)
 {"no":"₹ 1,00,00,000.10","words":"₹ one crore and ten paisa"}
 
-```https://github.com/nicholas-george/Indian-Currency-Converter/blob/master/lib/inr_word.exhttps://github.com/nicholas-george/Indian-Currency-Converter/blob/master/lib/inr_word.ex
+inrWords(10000000.10, '', '')
+{"no":"1,00,00,000.10","words":"one crore and ten"}
 
-You can also use it as an ES6 module, in your projects as it is.
-
-## Installation
-
-The package can be installed by adding `inr_word` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:inr_word, "~> 0.1.0"}
-  ]
-end
 ```
+A few more variations are possible. For a full list, pl. look at [index.test.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.test.js).
 
-The docs can be found at <https://hexdocs.pm/inr_word>.
+## In your projects..
 
-## Why another currency converter?
+You can  use it as an ES6 module, in your projects as it is.
+
+To use as a node commonjs module change the last line to 'module.exports = inrWords;'
+
+With a minor tweek, this code can be use in Google appscripts and use in Google sheets. 
+  (line 75 'return leftPart;' has to be changed into 
+           'return leftPart.no;')  if u want  only the number
+           'return leftPart.words;')  if u want  only the words.)
+
+## Indian currency converter?
 
 Most international currency handlers split numbers in three digit parts. The larger ones turn into million, billion, trillion etc. But the Indian currency is split into 3 digit -> hundred, 2 digit -> thousand and 2 digit - lacs. Beyond this it is in crores. And there is no eqivalent of billion, trillion etc. 
 
@@ -39,11 +38,9 @@ Most international currency handlers split numbers in three digit parts. The lar
   a number like '9999999999999999' becomes "₹ 9,99,99,999,99,99,999"
   And in words, "₹ Nine crore ninety-nine lac ninety-nine thousand nine hundred ninety-nine crore ninety-nine lac ninety-nine thousand nine hundred ninety-nine"
 
-Did not find anything in the open source and in Elixir. Also since the code is not large (109 lines) this may be useful for a Elixir beginner to learn things that I learnt doing this project -- recursion, pattern matching, Enum, Map, String....
-
 ## Hey, there is an Elixir version!
 
-If you are looking for an Elixir version, you can look at [Indian_Currency_Coverter](https://github.com/nicholas-george/Indian-Currency-Converter).
+If you are looking for an Elixir version to convert numbers for Indian currency, you can look at [Indian_Currency_Coverter](https://github.com/nicholas-george/Indian-Currency-Converter).
 
 ## Copyright and License
 
