@@ -4,12 +4,8 @@
   "description": "A javascript utility to convert numbers into Indiann currency",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage"
   },
   "repository": {
     "type": "git",
@@ -17,8 +13,7 @@
   },
   "keywords": [
     "inr",
-    "inr_to_words",
-    "javascript"
+    "inr_to_words"
   ],
   "author": "Nicholas George",
   "license": "MIT",
@@ -27,9 +22,18 @@
   },
   "homepage": "https://github.com/nicholas-george/inr_in_words#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.16.11",
-    "babel-jest": "^28.0.2",
+    "@babel/preset-env": "^7.17.10",
     "eslint": "^8.14.0",
-    "jest": "^28.0.2"
+    "jest": "^28.0.3"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }

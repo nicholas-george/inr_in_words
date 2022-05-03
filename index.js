@@ -15,10 +15,10 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
       z += SUB_TWENTY[rem];
     } else {
       const [tenVal, tenRem] = [Math.floor(rem / 10), rem % 10];
-      z += tenVal > 0 ? `${TENS[tenVal]} ` : '';
+      z += `${TENS[tenVal]} `;
       z += tenRem > 0 ? SUB_TWENTY[tenRem] : '';
     }
-    return z;
+    return z.trim();
   };
 
   const getNos = (val, yNo, k, left) => {
