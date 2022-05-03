@@ -5,7 +5,7 @@ An javascript utility to convert numbers into Indian currency.
 
 ## Use
 
-If you want to just play around, copy / paste the whole code from [index.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.js) into your browser console. Then in call
+If you want to just play around, copy / paste the whole code from [index.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.js) into your browser console. Then in try the following.
 ```javascript
 inrWords(100000000000000)
 {"no":"₹ 1,00,00,000,00,00,000", "words":"₹ one crore crores"}
