@@ -23,7 +23,7 @@ A few more variations are possible. For a full list, pl. look at [index.test.js]
 
 You can  use it as an ES6 module, in your projects as it is.
 
-To use as a node commonjs module change the last line to 'module.exports = inrWords;'
+To use as a node commonjs module change the last line from 'export default inrWords;' to 'module.exports = inrWords;'
 
 With a minor tweek, this code can be used in Google appscripts and use in Google sheets.
 
