@@ -1,7 +1,7 @@
 # inr_in_words
 [![Elixir CI](https://github.com/nicholas-george/Indian-Currency-Converter/actions/workflows/elixir.yml/badge.svg)](https://github.com/nicholas-george/Indian-Currency-Converter/actions/workflows/elixir.yml)
 
-An javascript utility to convert numbers into Indian currency.
+A javascript utility to convert numbers into Indian currency.
 
 ## Use
 
