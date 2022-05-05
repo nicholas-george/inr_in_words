@@ -25,7 +25,6 @@ You can  use it as an ES6 module, in your projects as it is.
 To use as a node commonjs module change the last line from 'export default inrWords;' to 'module.exports = inrWords;'
 
 With a minor tweek, this code can be used in Google appscripts and used in Google sheets.
-
 There is a [Google Sheets AppScript version](https://github.com/nicholas-george/inr_in_words/blob/master/googleAppScript.js). You can just copy paste the whole code here into your google sheet appscript.
 
 Then in your sheet, there are four functions: 
