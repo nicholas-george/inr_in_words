@@ -20,10 +20,10 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
       z += SUB_TWENTY[rem];
     } else {
       const [tenVal, tenRem] = [Math.floor(rem / 10), rem % 10];
-      z += tenVal > 0 ? `${TENS[tenVal]} ` : '';
+      z += `${TENS[tenVal]} `;
       z += tenRem > 0 ? SUB_TWENTY[tenRem] : '';
     }
-    return z;
+    return z.trim();
   };
 
   const getNos = (val, yNo, k, left) => {
@@ -65,16 +65,18 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
   }, { no: '', words: '' });
 
   const pack = ([left, right = '00']) => {
-    const leftPart = convertNum(left, CURR_MAP);
-    leftPart.no = leftPart.no.startsWith(rs) ? leftPart.no : `${rs} ${leftPart.no}`;
-    leftPart.words = (leftPart.words.startsWith(rs) ? leftPart.words : `${rs} ${leftPart.words}`).trim();
+    const lPart = convertNum(left, CURR_MAP);
+    lPart.no = lPart.no.startsWith(rs) ? lPart.no : `${rs} ${lPart.no}`;
+    lPart.words = (rs.length && lPart.words.startsWith(rs) ? lPart.words : `${rs} ${ProperCase(lPart.words)}`).trim();
     if (right !== '00') {
       const rWords = getWords(right);
-      leftPart.no += `.${right}`;
-      leftPart.words = leftPart.words + ` and ${rWords}${ps ? ' ' : ''}${ps}`;
+      lPart.no += `.${right}`;
+      lPart.words = lPart.words + ` and ${rWords}${ps ? ' ' : ''}${ps}`;
     }
-    return leftPart;
+    return lPart;
   };
+
+  const ProperCase = (str) => str[0].toUpperCase() + str.substr(1);
 
   if (!Number.isFinite(n)) return { error: 'Not a number which can be converted.' };
   return pack(Number.parseFloat(n).toFixed(2).toString().split('.'));
