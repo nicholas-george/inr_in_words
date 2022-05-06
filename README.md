@@ -8,13 +8,13 @@ An javascript utility to convert numbers into Indian currency.
 If you want to just play around, copy / paste the whole code from [index.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.js) into your browser console. Then in try the following.
 ```javascript
 inrWords(100000000000000)
-{"no":"₹ 1,00,00,000,00,00,000", "words":"₹ one crore crores"}
+{"no":"₹ 1,00,00,000,00,00,000", "words":"₹ One crore crores"}
 
 inrWords(10000000.10)
-{"no":"₹ 1,00,00,000.10","words": "₹ one crore and ten paisa"}
+{"no":"₹ 1,00,00,000.10","words": "₹ One crore and ten paisa"}
 
 inrWords(10000000.10, '', '')
-{"no":"1,00,00,000.10","words": "one crore and ten"}
+{"no":"1,00,00,000.10","words": "One crore and ten"}
 
 ```
 A few more variations are possible. For a full list, pl. look at [index.test.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.test.js).
@@ -34,13 +34,13 @@ Then in your sheet, there are four functions:
 
   ```Appscript
     =inr_Words(A2) 
-    ₹ two lacs fifty  thousand
+    ₹ Two lacs fifty  thousand
 
     =inr_Nos(A2)
     ₹ 2,50,000
 
     =inr_Words_Plain(A2)
-    two lacs fifty  thousand
+    Two lacs fifty  thousand
     
     =inr_Nos_Plain(A2)
     2,50,000
