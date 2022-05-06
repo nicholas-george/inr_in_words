@@ -1,7 +1,6 @@
 # inr_in_words
-[![Elixir CI](https://github.com/nicholas-george/Indian-Currency-Converter/actions/workflows/elixir.yml/badge.svg)](https://github.com/nicholas-george/Indian-Currency-Converter/actions/workflows/elixir.yml)
 
-An javascript utility to convert numbers into Indian currency.
+A javascript utility to convert numbers into Indian currency.
 
 ## Use
 
@@ -23,10 +22,9 @@ A few more variations are possible. For a full list, pl. look at [index.test.js]
 
 You can  use it as an ES6 module, in your projects as it is.
 
-To use as a node commonjs module change the last line to 'module.exports = inrWords;'
+To use as a node commonjs module change the last line from 'export default inrWords;' to 'module.exports = inrWords;'
 
-With a minor tweek, this code can be used in Google appscripts and use in Google sheets.
-
+With a minor tweek, this code can be used in Google appscripts and used in Google sheets.
 There is a [Google Sheets AppScript version](https://github.com/nicholas-george/inr_in_words/blob/master/googleAppScript.js). You can just copy paste the whole code here into your google sheet appscript.
 
 Then in your sheet, there are four functions: 
