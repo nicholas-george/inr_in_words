@@ -53,4 +53,7 @@ describe('Handling exceptions', () => {
   test('Non numeric value caught', () => {
     expect(inrWords('abc')).toEqual({ "error": "Not a number which can be converted." });
   });
+  test('handling zero value', () => {
+    expect(inrWords(0)).toEqual({ "no": "₹ 0", "words": "₹ Zero" });
+  });
 });
