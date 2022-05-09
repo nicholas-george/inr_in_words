@@ -60,7 +60,8 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
     const lPart = convertNum(left, CURR_MAP);
     lPart.no = lPart.no.length ? lPart.no : '0';
     lPart.no = lPart.no.startsWith(rs) ? lPart.no : `${rs} ${lPart.no}`;
-    lPart.words = (rs.length && lPart.words.startsWith(rs) ? lPart.words : `${rs} ${ProperCase(lPart.words)}`).trim();
+    lPart.words = (rs.length && lPart.words.startsWith(rs) ? lPart.words :
+      `${rs} ${lPart.words.length ? lPart.words[0].toUpperCase() + lPart.words.substring(1) : 'Zero'}`).trim();
     if (right !== '00') {
       const rWords = getWords(right);
       lPart.no += `.${right}`;
@@ -68,8 +69,6 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
     }
     return lPart;
   };
-
-  const ProperCase = (str) => str.length ? str[0].toUpperCase() + str.substring(1) : 'Zero';
 
   if (!Number.isFinite(n)) return { error: 'Not a number which can be converted.' };
   return pack(Number.parseFloat(n).toFixed(2).toString().split('.'));
