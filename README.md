@@ -40,6 +40,7 @@ Have fun! :rocket:
 ### Usage
 
 ```
+<<<<<<< HEAD
 insider is the CLI project from the Insider Application Security Team for the community
 
 Usage:
@@ -82,6 +83,9 @@ Example of use:
 
         # Run JavaScript analysis on specific directoty and exclude node_modules and test files
         insider -tech javascript -target <directory> -exclude tests/* -exclude node_modules/*
+=======
+A few more variations are possible. For a full list, please look at [index.test.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.test.js).
+>>>>>>> 58ab2180785e674d655e7bab94cd85ba87893b09
 
 ```
 
