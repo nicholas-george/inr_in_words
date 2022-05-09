@@ -24,7 +24,7 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
   const getNos = (val, yNo, k, left) => {
     const digits = yNo.length ? DIGIT_MAP[k] : 0; // No leading zeroes
     let str = (val < 10 && k === 'hundred' && left.toString().slice(-2) === '00')
-      ? (+val).toString().padEnd(3, '0')
+      ? +val.toString().padEnd(3, '0')
       : (val === 0 && !yNo.length) ? '' : val.toString().padStart(digits, '0');
     if (yNo.slice(-4, yNo.length - 3) === ',' && k === 'hundred') {
       str = `${+yNo.slice(-3).toString()}${(+str).toString().padStart(2, '0')}`;
