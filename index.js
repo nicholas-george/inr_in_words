@@ -72,7 +72,6 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
   const ProperCase = (str) => str.length ? str[0].toUpperCase() + str.substring(1) : 'Zero';
 
   if (!Number.isFinite(n)) return { error: 'Not a number which can be converted.' };
-
   return pack(Number.parseFloat(n).toFixed(2).toString().split('.'));
 };
 
