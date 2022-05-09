@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>47/47</span>
+                <span class='fraction'>46/46</span>
             </div>
         
             
@@ -138,17 +138,8 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,7 +159,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">103x</span>
 <span class="cline-any cline-yes">68x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,18 +197,15 @@
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
@@ -226,14 +214,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const inrWords = (n, rs = '₹', ps = 'paisa') =&gt; {
-  const [SUB_TWENTY, TENS, CURR_MAP, DIGIT_MAP] = [[
-    '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
-    'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',
-  ], [
-    '', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety',
-  ], [['crore', 10000000], ['lacs', 100000], ['thousand', 1000], ['hundred', 100]], {
-    'crore': 0, 'thousand': 2, 'lacs': 2, 'hundred': 3,
-  }];
+  const [SUB_TWENTY, TENS, DIGIT_MAP] = [[
+    '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven',
+    'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',],
+  ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety',],
+  [['crore', 10000000, 0], ['lacs', 100000, 2], ['thousand', 1000, 2], ['hundred', 100, 3]]];
 &nbsp;
   const getWords = (num, k) =&gt; {
     const [val, rem] = [Math.floor(num / 100), num % 100];
@@ -249,7 +234,7 @@
   };
 &nbsp;
   const getNos = (val, yNo, k, left) =&gt; {
-    const digits = yNo.length ? DIGIT_MAP[k] : 0; // No leading zeroes
+    const digits = yNo.length ? DIGIT_MAP.find(x =&gt; x[0] === k)[2] : 0;
     let str = (val &lt; 10 &amp;&amp; k === 'hundred' &amp;&amp; left.toString().slice(-2) === '00')
       ? +val.toString().padEnd(3, '0')
       : (val === 0 &amp;&amp; !yNo.length) ? '' : val.toString().padStart(digits, '0');
@@ -284,22 +269,19 @@
   }, { no: '', words: '' });
 &nbsp;
   const pack = ([left, right = '00']) =&gt; {
-    const lPart = convertNum(left, CURR_MAP);
+    const lPart = convertNum(left, DIGIT_MAP);
     lPart.no = lPart.no.length ? lPart.no : '0';
     lPart.no = lPart.no.startsWith(rs) ? lPart.no : `${rs} ${lPart.no}`;
-    // lPart.words = (rs.length &amp;&amp; lPart.words.startsWith(rs) ? lPart.words :
-    //   `${rs} ${ProperCase(lPart.words)}`).trim();
     lPart.words = (rs.length &amp;&amp; lPart.words.startsWith(rs) ? lPart.words :
       `${rs} ${lPart.words.length ? lPart.words[0].toUpperCase() + lPart.words.substring(1) : 'Zero'}`).trim();
     if (right !== '00') {
-      const rWords = getWords(right);
       lPart.no += `.${right}`;
-      lPart.words = lPart.words + ` and ${rWords}${ps ? ' ' : ''}${ps}`;
+      // lPart.words = lPart.words + ` and ${getWords(right)}${ps ? ' ' : ''}${ps}`;
+      lPart.words += ` and ${getWords(right)}${ps ? ' ' : ''}${ps}`;
+&nbsp;
     }
     return lPart;
   };
-&nbsp;
-  // const ProperCase = (str) =&gt; str.length ? str[0].toUpperCase() + str.substring(1) : 'Zero';
 &nbsp;
   if (!Number.isFinite(n)) return { error: 'Not a number which can be converted.' };
   return pack(Number.parseFloat(n).toFixed(2).toString().split('.'));
@@ -313,7 +295,7 @@ export default inrWords;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 09 2022 07:26:38 GMT+0530 (India Standard Time)
+                at Mon May 09 2022 09:06:08 GMT+0530 (India Standard Time)
             </div>
         <script src="prettify.js"></script>
         <script>

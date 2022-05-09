@@ -1,12 +1,9 @@
 const inrWords = (n, rs = '₹', ps = 'paisa') => {
-  const [SUB_TWENTY, TENS, CURR_MAP, DIGIT_MAP] = [[
-    '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
-    'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',
-  ], [
-    '', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety',
-  ], [['crore', 10000000], ['lacs', 100000], ['thousand', 1000], ['hundred', 100]], {
-    'crore': 0, 'thousand': 2, 'lacs': 2, 'hundred': 3,
-  }];
+  const [SUB_TWENTY, TENS, DIGIT_MAP] = [[
+    '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven',
+    'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',],
+  ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety',],
+  [['crore', 10000000, 0], ['lacs', 100000, 2], ['thousand', 1000, 2], ['hundred', 100, 3]]];
 
   const getWords = (num, k) => {
     const [val, rem] = [Math.floor(num / 100), num % 100];
@@ -22,7 +19,7 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
   };
 
   const getNos = (val, yNo, k, left) => {
-    const digits = yNo.length ? DIGIT_MAP[k] : 0; // No leading zeroes
+    const digits = yNo.length ? DIGIT_MAP.find(x => x[0] === k)[2] : 0;
     let str = (val < 10 && k === 'hundred' && left.toString().slice(-2) === '00')
       ? +val.toString().padEnd(3, '0')
       : (val === 0 && !yNo.length) ? '' : val.toString().padStart(digits, '0');
@@ -57,15 +54,14 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
   }, { no: '', words: '' });
 
   const pack = ([left, right = '00']) => {
-    const lPart = convertNum(left, CURR_MAP);
+    const lPart = convertNum(left, DIGIT_MAP);
     lPart.no = lPart.no.length ? lPart.no : '0';
     lPart.no = lPart.no.startsWith(rs) ? lPart.no : `${rs} ${lPart.no}`;
     lPart.words = (rs.length && lPart.words.startsWith(rs) ? lPart.words :
       `${rs} ${lPart.words.length ? lPart.words[0].toUpperCase() + lPart.words.substring(1) : 'Zero'}`).trim();
     if (right !== '00') {
-      const rWords = getWords(right);
       lPart.no += `.${right}`;
-      lPart.words = lPart.words + ` and ${rWords}${ps ? ' ' : ''}${ps}`;
+      lPart.words += ` and ${getWords(right)}${ps ? ' ' : ''}${ps}`;
     }
     return lPart;
   };
