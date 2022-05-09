@@ -16,7 +16,7 @@ inrWords(10000000.10, '', '')
 {"no":"1,00,00,000.10","words": "One crore and ten"}
 
 ```
-A few more variations are possible. For a full list, pl. look at [index.test.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.test.js).
+A few more variations are possible. For a full list, please look at [index.test.js](https://github.com/nicholas-george/inr_in_words/blob/master/index.test.js).
 
 ## Use in your projects..
 
