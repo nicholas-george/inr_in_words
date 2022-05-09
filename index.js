@@ -23,12 +23,9 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
 
   const getNos = (val, yNo, k, left) => {
     const digits = yNo.length ? DIGIT_MAP[k] : 0; // No leading zeroes
-    let str = "";
-    if (val < 10 && k === 'hundred' && left.toString().slice(-2) === '00') {
-      str = (+val).toString().padEnd(3, '0');
-    } else {
-      str = val === 0 && !yNo.length ? '' : val.toString().padStart(digits, '0');
-    }
+    let str = (val < 10 && k === 'hundred' && left.toString().slice(-2) === '00')
+      ? (+val).toString().padEnd(3, '0')
+      : (val === 0 && !yNo.length) ? '' : val.toString().padStart(digits, '0');
     if (yNo.slice(-4, yNo.length - 3) === ',' && k === 'hundred') {
       str = `${+yNo.slice(-3).toString()}${(+str).toString().padStart(2, '0')}`;
       return yNo.slice(0, -3) + str;
@@ -72,9 +69,10 @@ const inrWords = (n, rs = '₹', ps = 'paisa') => {
     return lPart;
   };
 
-  const ProperCase = (str) => str.length ? str[0].toUpperCase() + str.substr(1) : 'Zero';
+  const ProperCase = (str) => str.length ? str[0].toUpperCase() + str.substring(1) : 'Zero';
 
   if (!Number.isFinite(n)) return { error: 'Not a number which can be converted.' };
+
   return pack(Number.parseFloat(n).toFixed(2).toString().split('.'));
 };
 
